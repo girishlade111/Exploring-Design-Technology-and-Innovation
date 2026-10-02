@@ -1,69 +1,77 @@
-# Welcome to your Lovable project
+# Exploring Design, Technology, and Innovation
 
-## Project info
+A personal blog and portfolio site exploring the intersection of design and technology — where simplicity meets innovation. Features an animated hero section, blog posts, work highlights, a calendar booking embed, and social links.
 
-**URL**: https://lovable.dev/projects/ec05ba79-234e-4be5-a727-83aee50417dc
+## Features
 
-## How can I edit this code?
+- **Animated hero section** — Framer Motion entrance animations over a geometric, bauhaus-inspired layout
+- **Blog posts** — curated article cards and reading sections
+- **Work highlights** — portfolio showcase of selected projects
+- **Calendar embed** — book-a-meeting widget integration
+- **Social links** — quick links to social profiles
+- **Responsive design** — mobile-first layout with Tailwind CSS
+- **Modern UI kit** — full shadcn/ui component set (dialogs, drawers, carousels, charts, forms, and more)
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Framework:** React 18 + TypeScript + Vite
+- **Styling:** Tailwind CSS + shadcn/ui (Radix primitives)
+- **Animation:** Framer Motion
+- **Routing:** React Router (BrowserRouter)
+- **Data fetching:** TanStack Query
+- **Forms:** React Hook Form + Zod validation
+- **Notifications:** Sonner / custom Toaster
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ec05ba79-234e-4be5-a727-83aee50417dc) and start prompting.
+## Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install
+npm run dev        # start dev server at http://localhost:8080
+npm run build      # production build -> dist/
+npm run preview    # preview the production build
 ```
 
-**Edit a file directly in GitHub**
+Requirements: Node.js 18+.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+├── index.html
+├── public/                  # static assets (favicon, og-image)
+├── src/
+│   ├── App.tsx              # router + providers (QueryClient, Tooltip, Toaster)
+│   ├── main.tsx             # entry point
+│   ├── pages/
+│   │   ├── Index.tsx        # landing page composition
+│   │   └── NotFound.tsx     # 404 page
+│   ├── components/
+│   │   ├── HeroSection.tsx  # animated hero
+│   │   ├── BlogPosts.tsx    # blog section
+│   │   ├── WorkHighlights.tsx
+│   │   ├── CalendarEmbed.tsx
+│   │   ├── SocialLinks.tsx
+│   │   └── ui/              # shadcn/ui components
+│   ├── index.css            # Tailwind + theme tokens
+├── tailwind.config.ts
+├── vite.config.ts
+└── tsconfig.json
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deploy
 
-## What technologies are used for this project?
+Static site — deploy the `dist/` folder to any static host:
 
-This project is built with .
+```bash
+npm run build
+# then deploy dist/ to Cloudflare Pages, Netlify, or GitHub Pages
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+No environment variables required. Because the app uses `BrowserRouter`, static hosts should rewrite all routes to `index.html` (a `_redirects` / `/* /index.html 200` rule) so deep links work.
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/ec05ba79-234e-4be5-a727-83aee50417dc) and click on Share -> Publish.
+MIT — free to use and adapt.
 
-## I want to use a custom domain - is that possible?
+---
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+*Built by [Girish Lade](https://ladestack.in) — explore more open-source tools and products at [ladestack.in](https://ladestack.in).*
